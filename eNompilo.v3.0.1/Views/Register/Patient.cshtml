@@ -1,0 +1,78 @@
+﻿@using eNompilo.v3._0._1.Constants;
+@using eNompilo.v3._0._1.Models.SystemUsers;
+@model ApplicationUser
+
+@{
+    ViewData["Title"] = "Patient";
+}
+
+<div class="container">
+    <h1>Register Patient Account</h1>
+    <form asp-action="Patient" method="post" class="p-5">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="row mb-4">
+            <label asp-for="IdNumber" class="control-label"></label>
+            <input asp-for="IdNumber" type="number" class="form-control" />
+            <span asp-validation-for="IdNumber" class="text-danger"></span>
+        </div>
+
+        <div class="row mb-4">
+            <label asp-for="Titles" class="control-label"></label>
+            <select asp-for="Titles" class="form-control" asp-items="Html.GetEnumSelectList<Titles>()">
+                <option disabled selected hidden>Please select an option</option>
+            </select>
+            <span asp-validation-for="Titles" class="text-danger"></span>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-6 form-group">
+                <label asp-for="FirstName" class="control-label"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+
+            <div class="col-6 form-group">
+                <label asp-for="MiddleName" class="control-label"></label>
+                <input asp-for="MiddleName" class="form-control" />
+                <span asp-validation-for="MiddleName" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <label asp-for="LastName" class="control-label"></label>
+            <input asp-for="LastName" class="form-control" />
+            <span asp-validation-for="LastName" class="text-danger"></span>
+        </div>
+
+        <div class="row mb-4">
+            <label asp-for="Email" class="control-label"></label>
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+        <div class="row mb-4">
+            <label asp-for="PhoneNumber" class="control-label"></label>
+            <input asp-for="PhoneNumber" type="number" class="form-control" />
+            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+        </div>
+
+        <div class="form-group py-2">
+            <label asp-for="Password" class="control-label"></label>
+            <input asp-for="Password" class="form-control" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+
+        <div class="form-group py-2 ">
+            <label asp-for="ConfirmPassword" class="control-label"></label>
+            <input asp-for="ConfirmPassword" class="form-control" />
+            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+        </div>
+
+        <div class="form-group py-2 mt-3">
+            <input type="submit" value="Register" class="btn btn-primary" />
+            <a class="btn btn-danger" asp-action="Index" asp-controller="Home">Back</a>
+        </div>
+    </form>
+</div>
+

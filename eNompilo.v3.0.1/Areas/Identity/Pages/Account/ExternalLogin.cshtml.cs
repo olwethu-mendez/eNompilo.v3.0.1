@@ -18,6 +18,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using eNompilo.v3._0._1.Models.SystemUsers;
 
 namespace eNompilo.v3._0._1.Areas.Identity.Pages.Account
 {

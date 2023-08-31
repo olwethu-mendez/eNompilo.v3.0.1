@@ -20,10 +20,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\Counselling\" />
+    <Folder Include="Models\Counselling\Booking\" />
     <Folder Include="Models\Family Planning\" />
     <Folder Include="Models\GBV\" />
-    <Folder Include="Models\Vaccination\" />
     <Folder Include="Models\SMP\" />
   </ItemGroup>
 

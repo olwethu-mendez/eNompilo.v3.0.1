@@ -6,6 +6,7 @@ using eNompilo.v3._0._1.Models.SystemUsers;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using eNompilo.v3._0._1.Models.Family_Planning;
 
 namespace eNompilo.v3._0._1.Areas.Identity.Data;
 
@@ -56,6 +57,7 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     public DbSet<PersonalDetails> tblPersonalDetails { get; set; }
     public DbSet<GeneralAppointment> tblGeneralAppointment { get; set; }
     public DbSet<CounsellingAppointment> tblCounsellingAppointment { get; set; }
+    public DbSet<FamilyPlanningAppointment> tblFamilyPlanningAppointment { get; set; }
     public DbSet<VaccinationAppointment> tblVaccinationAppointment { get; set; }
     public DbSet<PractitionerDiary> tblPractitionerDiary { get; set; }
     public DbSet<PrescriptionMeds> tblPrescriptionMeds { get; set; }

@@ -1,8 +1,455 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Identity;
+@using eNompilo.v3._0._1.Areas.Identity.Data;
+@using eNompilo.v3._0._1.Models.SystemUsers;
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="text-left">
+<div class="picture-back bg-opacity-25">
+        <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-caption d-none d-md-block" style="z-index: 1000; vertical-align:top;">
+                    <h1 class="display-4 text-center paragraph-text">Welcome to e-Nompilo</h1>
+                </div>
+                <div class="carousel-item active" data-bs-interval="10000">
+                    <img src="~/img/carousel/carousel-1.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                    <img src="~/img/carousel/carousel-2.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="~/img/carousel/carousel-3.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-caption d-none d-md-block" style="z-index: 1000;">
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <a asp-area="" asp-controller="EmptyPages" asp-action="PageComingSoon" class="btn btn-primary">Book Now</a>
+
+                        <br />
+                    }
+                    else
+                    {
+                        <a asp-controller="Register" asp-action="Patient" class="btn btn-primary" role="button" aria-pressed="true">Register</a>
+
+                        <br />
+                    }
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    
+    <br />
+    <div class="d-flex justify-content-around hero-sect">
+        <div class="images d-flex justify-content-center">
+            <img src="~/img/Snake logo.png" style="height: 350px; left: 323px; top: 258px;" />
+        </div>
+
+        <br />
+        @* <div class="col-2">
+
+        </div>*@
+        <div class="buttons">
+            
+            <a href="#staff" class="btn btn-primary btn-lg active btn-toolbar d-flex justify-content-center align-items-center rounded-pill" role="button" aria-pressed="true">Meet our Heads Of Departments</a><br />
+            <a href="#services" class="btn btn-primary btn-lg active btn-toolbar d-flex justify-content-center align-items-center rounded-pill" role="button" aria-pressed="true">Our Services</a><br />
+            <a href="#contact" class="btn btn-primary btn-lg active btn-toolbar d-flex justify-content-center align-items-center rounded-pill" role="button" aria-pressed="true">Contact Us</a>
+            @* <a href="#staff" class="btn btn-primary mr-2 mb-2 btn-toolbar">Meet our staff</a>
+            <a href="#services" class="btn btn-primary mr-2 mb-2 btn-toolbar">Our services</a>
+            <a href="#contact" class="btn btn-primary mr-2 mb-2 btn-toolbar">Contact Us</a>*@
+        </div>
+    </div><br />
+
+</div>
+<br />
+@*<div class="text-container">
+    <h2 class="text-center" id="staff">
+        Meet Our Heads Of Departments
+    </h2><br /><br />
+    <p>
+        Our heads of departments are the visionary leaders who steer our organization towards success and guide their respective teams to achieve remarkable outcomes. With their extensive knowledge, experience, and exceptional skills, they form the backbone of our institution, ensuring that every department operates seamlessly and efficiently. These remarkable individuals possess a deep understanding of their fields and are continuously exploring innovative strategies to drive growth and excellence. They inspire their teams through effective communication, fostering collaboration, and encouraging creativity. The heads of our departments lead by example, demonstrating unwavering dedication, integrity, and a commitment to the highest standards. Their exceptional leadership skills empower their teams to overcome challenges, seize opportunities, and reach new heights of accomplishment. Under their guidance, our organization flourishes, making significant strides towards its goals while cultivating an environment of trust, respect, and continuous learning.
+    </p>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item" style="background-color: #e2e2e2;">
+            <div class="d-flex flex-column flex-lg-row justify-content-start staff-container">
+                <div class="p-2 head-image">
+                    <img src="~/img/Head of GBV.jpg" class="staff-images staff-image-1" />
+                </div>
+                <div class="p-2 head-details">
+                    <dl class="row">
+                        <dt class="col-sm-3">
+                            <strong>Position:</strong>
+                        </dt>
+                        <dd class="col-sm-10">
+                            <strong>Head of Gender Based Violence</strong>
+                        </dd>
+                    </dl>
+                    <dl class="row">
+                        <dt class="col-sm-3">
+                            Name:
+                        </dt>
+                        <dd class="col-sm-10">
+                            Ms Nolwazi Mhobe
+                        </dd>
+                    </dl>
+                    <dl class="row">
+                        <dt class="col-sm-3">
+                            Office:
+                        </dt>
+                        <dd class="col-sm-10">
+                            R113
+                        </dd>
+                    </dl>
+                    <dl class="row">
+                        <dt class="col-sm-3">
+                            Email:
+                        </dt>
+                        <dd class="col-sm-10">
+                            nolwazi.mhobe@@enompilo.ac.za
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item" style="background-color: #e2e2e2;">
+            <div class="d-flex flex-column flex-lg-row justify-content-start staff-container">
+                <div class="p-2 head-image">
+                    <img src="~/img/Head of Family planning.jpg" class="staff-images staff-image-2" />
+                </div>
+                <div class="p-2 head-details">
+                    <dl class="row">
+                        <dt class="col-sm-3">
+                            <strong>Position:</strong>
+                        </dt>
+                        <dd class="col-sm-10">
+                            <strong>Head of Family Planning</strong>
+                        </dd>
+                    </dl>
+                    <dl class="row">
+                        <dt class="col-sm-3">
+                            Name:
+                        </dt>
+                        <dd class="col-sm-10">
+                            Mrs Eunice Yvonne
+                        </dd>
+                    </dl>
+                    <dl class="row">
+                        <dt class="col-sm-3">
+                            Office:
+                        </dt>
+                        <dd class="col-sm-10">
+                            R116
+                        </dd>
+                    </dl>
+                    <dl class="row">
+                        <dt class="col-sm-3">
+                            Email:
+                        </dt>
+                        <dd class="col-sm-10">
+                            eunice.yvonne@@enompilo.ac.za
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item" style="background-color: #e2e2e2;">
+            <div class="d-flex flex-column flex-lg-row justify-content-start staff-container">
+                <div class="p-2 head-image">
+                    <img src="~/img/Counsellor.png" class="staff-images staff-image-3" />
+                </div>
+                <div class="p-2 head-details">
+                    <dl class="row">
+                        <dt class="col-sm-3">
+                            <strong>Position:</strong>
+                        </dt>
+                        <dd class="col-sm-10">
+                            <strong>Head of Counselling</strong>
+                        </dd>
+                    </dl>
+                    <dl class="row">
+                        <dt class="col-sm-3">
+                            Name:
+                        </dt>
+                        <dd class="col-sm-10">
+                            Mrs Zoleka Dlangamandla
+                        </dd>
+                    </dl>
+                    <dl class="row">
+                        <dt class="col-sm-3">
+                            Office:
+                        </dt>
+                        <dd class="col-sm-10">
+                            R009
+                        </dd>
+                    </dl>
+                    <dl class="row">
+                        <dt class="col-sm-3">
+                            Email:
+                        </dt>
+                        <dd class="col-sm-10">
+                            zoleka.dlangamandla@@enompilo.ac.za
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item" style="background-color: #e2e2e2;">
+            <div class="d-flex flex-column flex-lg-row justify-content-start staff-container">
+                <div class="p-2 head-image">
+                    <img src="~/img/Head of SMP.jpg" class="staff-images staff-image-4" />
+                </div>
+                <div class="p-2 head-details">
+                    <dl class="row">
+                        <dt class="col-sm-3">
+                            <strong>Position:</strong>
+                        </dt>
+                        <dd class="col-sm-10">
+                            <strong>Head of Specialized Medical Procedures</strong>
+                        </dd>
+                    </dl>
+                    <dl class="row">
+                        <dt class="col-sm-3">
+                            Name:
+                        </dt>
+                        <dd class="col-sm-10">
+                            Dr. Nontsikelelo Dube
+                        </dd>
+                    </dl>
+                    <dl class="row">
+                        <dt class="col-sm-3">
+                            Office:
+                        </dt>
+                        <dd class="col-sm-10">
+                            G023
+                        </dd>
+                    </dl>
+                    <dl class="row">
+                        <dt class="col-sm-3">
+                            Email:
+                        </dt>
+                        <dd class="col-sm-10">
+                            nontsikelelo.dube@@enompilo.ac.za
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item" style="background-color: #e2e2e2;">
+            <div class="d-flex flex-column flex-lg-row justify-content-start staff-container">
+                <div class="p-2 head-image">
+                    <img src="~/img/Head of Vaccination.jpg" class="staff-images staff-image-5" />
+                </div>
+                <div class="p-2 head-details">
+                    <dl class="row">
+                        <dt class="col-sm-3">
+                            <strong>Position:</strong>
+                        </dt>
+                        <dd class="col-sm-10">
+                            <strong>Head of Vaccination</strong>
+                        </dd>
+                    </dl>
+                    <dl class="row">
+                        <dt class="col-sm-3">
+                            Name:
+                        </dt>
+                        <dd class="col-sm-10">
+                            Prof. Dean Son
+                        </dd>
+                    </dl>
+                    <dl class="row">
+                        <dt class="col-sm-3">
+                            Office:
+                        </dt>
+                        <dd class="col-sm-10">
+                            G003
+                        </dd>
+                    </dl>
+                    <dl class="row">
+                        <dt class="col-sm-3">
+                            Email:
+                        </dt>
+                        <dd class="col-sm-10">
+                            dean.son@@enompilo.ac.za
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </li>
+    </ul*@><br /><br />
+    <h2 id="services"> Our Services </h2><br /><br />
+    <div class="cards-grouped">
+        <div class="card bg-light border-1 services-card" style="width: 286px;">
+            <p class="text-center"><img class="card-img-top text-center" src="~/img/icons/counselling.png" style="width: 180px;" alt="Card image cap"></p>
+            <hr />
+            <div class="card-body">
+                <h5 class="card-title text-center">Counselling</h5>
+                <p class="card-text">Our counsellors are well equiped to help you deal with whatever mental struggles you may face.</p>
+            </div>
+            <div class="card-footer text-end">
+                <a data-toggle="modal" data-target="#counselorModal" class="btn btn-link">Read more</a>
+            </div>
+        </div>
+
+        <br /><br />
+
+        <div class="card bg-light border-1 services-card" style="width: 286px;">
+            <p class="text-center"><img class="card-img-top text-center" src="~/img/icons/family planning.png" style="width: 180px;" alt="Card image cap"></p>
+            <hr />
+            <div class="card-body">
+                <h5 class="card-title text-center">Family Planning</h5>
+                <p class="card-text">Take charge of your life and when you will have a family.</p>
+            </div>
+            <div class="card-footer text-end">
+                <a data-toggle="modal" data-target="#familyPlanningModal" class="btn btn-link">Read more</a>
+            </div>
+        </div>
+
+        <br /><br />
+
+        <div class="card bg-light border-1 services-card" style="width: 286px;">
+            <p class="text-center"><img class="card-img-top text-center" src="~/img/icons/gbv.png" style="width: 180px;" alt="Card image cap"></p>
+            <hr />
+            <div class="card-body">
+                <h5 class="card-title text-center">Gender-Based Violence</h5>
+                <p class="card-text">Get the help and support you need as a gender-based violence survivor.</p>
+            </div>
+            <div class="card-footer text-end">
+                <a data-toggle="modal" data-target="#GBVModal" class="btn btn-link">Read more</a>
+            </div>
+        </div>
+
+        <br /><br />
+
+        <div class="card bg-light border-1 services-card" style="width: 286px;">
+            <p class="text-center"><img class="card-img-top text-center" src="~/img/icons/smp.png" style="width: 180px;" alt="Card image cap"></p>
+            <hr />
+            <div class="card-body">
+                <h5 class="card-title text-center">Specialized Medical Procedurers.</h5>
+                <p class="card-text">Our in-house doctors are ready to see you and help with anything that plagues you.</p>
+            </div>
+            <div class="card-footer text-end">
+                <a data-toggle="modal" data-target="#SMPModal" class="btn btn-link">Read more</a>
+            </div>
+        </div>
+
+        <br /><br />
+
+        <div class="card bg-light border-1 services-card" style="width: 286px;">
+            <p class="text-center"><img class="card-img-top text-center" src="~/img/icons/vaccination.png" style="width: 180px;" alt="Card image cap"></p>
+            <hr />
+            <div class="card-body">
+                <h5 class="card-title text-center">Vaccination</h5>
+                <p class="card-text">Prevention is better than cure. Get vaccinated now and save yourself from unneccessary treatments.</p>
+            </div>
+            <div class="card-footer text-end">
+                <a data-toggle="modal" data-target="#vaccinationModal" class="btn btn-link">Read more</a>
+            </div>
+        </div>
+    </div><br /><br />
+
+    <div class="modal fade" id="counselorModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="text-info">Counselling</h5>
+                    @*<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>*@
+                </div>
+                <div class="modal-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed suscipit purus erat, eget molestie ipsum gravida a. Duis viverra, odio a facilisis dapibus, magna enim sagittis urna, ut tristique felis dui quis arcu. Suspendisse scelerisque congue urna, et consectetur lacus luctus a. Suspendisse potenti.</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="familyPlanningModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="text-info">Family Planning</h5>
+                    @*<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>*@
+                </div>
+                <div class="modal-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed suscipit purus erat, eget molestie ipsum gravida a. Duis viverra, odio a facilisis dapibus, magna enim sagittis urna, ut tristique felis dui quis arcu. Suspendisse scelerisque congue urna, et consectetur lacus luctus a. Suspendisse potenti.</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="GBVModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="text-info">Gender-Based Violence</h5>
+                    @*<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>*@
+                </div>
+                <div class="modal-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed suscipit purus erat, eget molestie ipsum gravida a. Duis viverra, odio a facilisis dapibus, magna enim sagittis urna, ut tristique felis dui quis arcu. Suspendisse scelerisque congue urna, et consectetur lacus luctus a. Suspendisse potenti.</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="SMPModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="text-info">Specialized Medical Procudures</h5>
+                    @*<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>*@
+                </div>
+                <div class="modal-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed suscipit purus erat, eget molestie ipsum gravida a. Duis viverra, odio a facilisis dapibus, magna enim sagittis urna, ut tristique felis dui quis arcu. Suspendisse scelerisque congue urna, et consectetur lacus luctus a. Suspendisse potenti.</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="vaccinationModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="text-info">Vaccination</h5>
+                    @*<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>*@
+                </div>
+                <div class="modal-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed suscipit purus erat, eget molestie ipsum gravida a. Duis viverra, odio a facilisis dapibus, magna enim sagittis urna, ut tristique felis dui quis arcu. Suspendisse scelerisque congue urna, et consectetur lacus luctus a. Suspendisse potenti.</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2 id="contact">Contact Us</h2><br /><br />
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed suscipit purus erat, eget molestie ipsum gravida a. Duis viverra, odio a facilisis dapibus, magna enim sagittis urna, ut tristique felis dui quis arcu. Suspendisse scelerisque congue urna, et consectetur lacus luctus a. Suspendisse potenti. Fusce finibus quam et quam porta blandit. Nam aliquam hendrerit purus vitae tempor. Vivamus et interdum metus. Nulla molestie ac justo rhoncus imperdiet. Nullam eu semper orci. Cras orci justo, dictum non tristique ut, vestibulum at sem. Morbi tempus lacus ante, eget pharetra ex fringilla at. Ut at cursus purus, eu consectetur turpis. Sed posuere scelerisque tincidunt. Maecenas justo orci, placerat non luctus at, imperdiet non purus.
+    </p>
+</div>
 </div>

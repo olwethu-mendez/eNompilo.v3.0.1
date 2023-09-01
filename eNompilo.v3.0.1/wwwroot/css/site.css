@@ -1,18 +1,233 @@
 html {
-  font-size: 14px;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 1925px) {
+    html {
+        font-size: 20px;
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
+}
+
+h1, h2 {
+    text-align: center;
 }
 
 body {
-  margin-bottom: 60px;
+    background-color: #e4e7fb;
 }
+
+.back-to-top {
+    padding: 10px;
+    position: fixed;
+    right: 5px;
+    bottom: 5px;
+}
+
+.login-logout-card .card-header {
+    padding: 0px 0px 12px 0px;
+}
+
+.login-logout-card ul.nav-tabs {
+    margin: 0px 0px -12px 0px;
+}
+
+.login-logout-card a.nav-link {
+    font-size: 1rem;
+    color: #495057;
+    text-align: center;
+    padding: 1rem;
+}
+
+.login-logout-card .card-body {
+    padding: 0px 0px;
+}
+
+.border-effect {
+    border: none;
+    border-bottom: 1px solid #1E1E1E;
+}
+
+.text-changed {
+    color: #0066ff;
+}
+
+.font-a-icon {
+    font-size: larger;
+}
+
+.nav-link-2 {
+    color: #777777;
+}
+
+.btn-toolbar {
+    margin-top: 0;
+    margin-bottom: 0;
+    /*    border-radius: 35px 35px;*/
+    width: 375px;
+    height: 75px;
+}
+/*35px*/
+
+/*.intro{
+    color:darkcyan;
+}*/
+
+.images, .buttons {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.staff-images {
+    width: 313px;
+    transition: all 0.3s;
+}
+
+.head-image .staff-images:hover {
+    opacity: 0.7;
+    transform: scale(1.1);
+}
+
+.text-container {
+    padding: 0px 150px 0px 150px;
+}
+
+.login-dd {
+    margin-right: auto;
+}
+
+.user-dropdown {
+    right: 0;
+    left: auto;
+}
+
+@media (max-width: 575px) {
+    .unaligned-text {
+        text-align: center;
+    }
+
+    .staff-images {
+        width: 235px;
+        transition: all 0.3s;
+    }
+
+    .not-found-images {
+        height: 248px;
+    }
+
+    .user-dropdown {
+        right: auto;
+        left: auto;
+    }
+
+    .head-image .staff-images:hover {
+        opacity: 0.7;
+        transform: scale(1.1);
+    }
+}
+
+@media (min-width: 991px) {
+    .dd-toggle {
+        margin-left: -15px;
+    }
+}
+
+@media (max-width: 991px) {
+    .hero-sect {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .head-image .head-details {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .images, .buttons {
+        margin-left: auto;
+        margin-right: auto;
+        display: inline-block;
+        padding: 2%;
+    }
+
+    .btn-toolbar {
+        margin-top: 0;
+        margin-bottom: 0;
+        border-radius: 35px;
+        width: 290px;
+        height: 65px;
+    }
+
+    .card-container {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .text-container {
+        padding: 0px 25px 0px 25px
+    }
+
+    .unaligned-text {
+        text-align: center;
+    }
+
+    .head-image .staff-images:hover {
+        opacity: 0.7;
+        transform: scale(1.1);
+    }
+}
+
+.picture-back {
+    background-image: url('opaque stethoscope.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: -webkit-linear-gradient(top, rgba(226,226,226,0) 0%, rgba(226,226,226,0.2) 20%, rgba(226,226,226,0.4) 80%, rgba(226,226,226,0.9) 100% ), url('opaque stethoscope.png');
+}
+
+.manual-container {
+    padding: 0px 0px 0px 0px;
+    margin: -20px 0px 20px 0px;
+}
+
+.cards-grouped {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-items: center;
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+}
+
+.services-card {
+    opacity: 0.8;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 5px;
+    transition: all 0.3s;
+}
+
+    .services-card:hover {
+        opacity: 1;
+        transform: scale(1.1);
+        background-color: #e2e2e2 !Important;
+        /*color:white !important;*/
+        box-shadow: gray 3px 3px 5px 6px;
+    }
+
+/*.services-card:hover a{
+        color: #777777 !important;
+    }*/

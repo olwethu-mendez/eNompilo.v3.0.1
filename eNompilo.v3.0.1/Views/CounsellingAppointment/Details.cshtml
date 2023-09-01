@@ -1,4 +1,4 @@
-﻿@model eNompilo.v3._0._1.Models.GeneralAppointment
+﻿@model eNompilo.v3._0._1.Models.Counselling.CounsellingAppointment
 
 @{
     ViewData["Title"] = "Details";
@@ -7,14 +7,26 @@
 <h1>Details</h1>
 
 <div>
-    <h4>GeneralAppointment</h4>
+    <h4>CounsellingAppointment</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PatientIssues)
+            @Html.DisplayNameFor(model => model.SessionPreference)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PatientIssues)
+            @Html.DisplayFor(model => model.SessionPreference)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.BookingReasons)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.BookingReasons)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ChallengesSpecific)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ChallengesSpecific)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.PreferredDate)

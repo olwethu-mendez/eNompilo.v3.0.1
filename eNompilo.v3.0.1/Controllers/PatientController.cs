@@ -178,6 +178,10 @@ namespace eNompiloCounselling.Controllers
                 var medicalHistoryId = medicalHistory.Id;
                 HttpContext.Session.SetInt32("MedicalHistoryId", medicalHistoryId);
 
+                var personalDetails = dbContext.tblPersonalDetails.SingleOrDefault(c => c.PatientId == patientId);
+                var personalDetailsId = personalDetails.Id;
+                HttpContext.Session.SetInt32("PersonalDetailsId", personalDetailsId);
+
                 int? truePatientId = _contextAccessor.HttpContext.Session.GetInt32("PatientId");
 
                 if (_contextAccessor.HttpContext.Session.GetInt32("PatientId2") == null)
@@ -192,6 +196,7 @@ namespace eNompiloCounselling.Controllers
                 var patientFile = new PatientFile
                 {
                     PatientId = truePatientId,
+                    PersonalDetailsId = personalDetailsId,
                     MedicalHistoryId = medicalHistoryId,
                 };
                 dbContext.tblPatientFile.Add(patientFile);

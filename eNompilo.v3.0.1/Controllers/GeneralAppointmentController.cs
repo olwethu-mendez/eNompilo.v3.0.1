@@ -34,7 +34,7 @@ namespace eNompiloCounselling.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Book(GeneralAppointment model)
         {
-            if(ModelState.IsValid)
+            if(model.PatientIssues != null && model.PreferredDate != null && model.PreferredTime != null && model.PatientId != null && model.PatientFileId != null)
             {
                 dbContext.tblGeneralAppointment.Add(model);
                 dbContext.SaveChanges();

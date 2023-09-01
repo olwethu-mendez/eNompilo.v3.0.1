@@ -134,6 +134,12 @@ namespace eNompilo.v3._0._1.Constants
 		[Display(Name = "Shingles (Herpes Zoster")]
 		Herpes
 	}
+
+	public enum BookingReasons
+	{
+		Termination, [Display(Name = "Preventative Contraceptives")] PreventativeContraceptives, [Display(Name = "Emergency Contraceptives")] EmergencyContraceptives,
+	}
+
 	public enum EmotionalChallenges
 	{
 		issue1, issue2, issue3

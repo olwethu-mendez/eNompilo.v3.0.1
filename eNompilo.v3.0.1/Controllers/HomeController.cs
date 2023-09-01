@@ -7,6 +7,7 @@ using System.Linq;
 using eNompilo.v3._0._1.Models.SystemUsers;
 using eNompilo.v3._0._1.Areas.Identity.Data;
 using eNompilo.v3._0._1.Constants;
+using Microsoft.EntityFrameworkCore;
 
 namespace eNompilo.v3._0._1.Controllers
 {
@@ -37,9 +38,12 @@ namespace eNompilo.v3._0._1.Controllers
 				var userId = _userManager.GetUserId(User);
 				var patient = _context.tblPatient.SingleOrDefault(c => c.UserId == userId);
 				var patientId = patient.Id;
-
 				HttpContext.Session.SetInt32("PatientId", patientId);
-			}
+
+                var patientFile = _context.tblPatientFile.SingleOrDefault(c => c.PatientId == patientId);
+                var patientFileId = patientFile.Id;
+                HttpContext.Session.SetInt32("PatientFileId", patientFileId);
+            }
 			
 
 			return View();

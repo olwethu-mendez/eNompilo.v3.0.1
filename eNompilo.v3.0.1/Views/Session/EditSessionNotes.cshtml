@@ -1,0 +1,64 @@
+﻿@model eNompilo.v3._0._1.Models.SessionNotes
+
+@{
+    ViewData["Title"] = "EditSessionNotes";
+}
+
+<h1>EditSessionNotes</h1>
+
+<h4>SessionNotes</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditSessionNotes">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="PractitionerNotes" class="control-label"></label>
+                <input asp-for="PractitionerNotes" class="form-control" />
+                <span asp-validation-for="PractitionerNotes" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="ConditionIndication" /> @Html.DisplayNameFor(model => model.ConditionIndication)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="PotentialCondition" class="control-label"></label>
+                <input asp-for="PotentialCondition" class="form-control" />
+                <span asp-validation-for="PotentialCondition" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsADanger" /> @Html.DisplayNameFor(model => model.IsADanger)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsAbused" /> @Html.DisplayNameFor(model => model.IsAbused)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="SessionId" class="control-label"></label>
+                <select asp-for="SessionId" class="form-control" asp-items="ViewBag.SessionId"></select>
+                <span asp-validation-for="SessionId" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Archived" /> @Html.DisplayNameFor(model => model.Archived)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -18,7 +18,7 @@ namespace eNompilo.v3._0._1.Models.Counselling
 
         [Required]
         [Display(Name = "Please choose what challenges have you been facing lately.")]
-        public EmotionalChallenges EmotionalChallenges { get; set; }
+        public EmotionalChallenges BookingReasons { get; set; }
 
         [Required]
         [Display(Name = "Can you please provide specific details on these challenges? This will help determine how best we can help you.")]
